@@ -1,0 +1,244 @@
+<?xml version="1.0"?>
+<tryton>
+    <data>
+
+
+<!-- Add icons -->
+        <record model="ir.ui.icon" id="gnuhealth_mxl_icon">
+            <field name="name">gnuhealth-mxl</field>
+            <field name="path">icons/folder-documents.svg</field>
+        </record>
+
+        <record model="ir.ui.icon" id="gnuhealth_list_icon">
+            <field name="name">gnuhealth-list</field>
+            <field name="path">../health/icons/tryton-list.svg</field>
+        </record>
+
+<!-- GNU Health Menu -->
+
+        <menuitem name="The Surgery" id="gnuhealth_mxl_menu" sequence="997" icon="gnuhealth-mxl"/>
+
+<!-- Top level menu items  -->
+
+<menuitem name="Reception" icon="gnuhealth-list"
+            id="gnuhealth_mxl_reception_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Nursing Station" icon="gnuhealth-list"
+            id="gnuhealth_mxl_nursing_station_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Doctors" icon="gnuhealth-list"
+            id="gnuhealth_mxl_doctor_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Other Medical Services" icon="gnuhealth-list"
+            id="gnuhealth_mxl_other_medical_services_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Dispensary" icon="gnuhealth-list"
+            id="gnuhealth_mxl_dispensary_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Laboratory" icon="gnuhealth-list"
+            id="gnuhealth_mxl_laboratory_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Financial" icon="gnuhealth-list"
+            id="gnuhealth_mxl_financial_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Stores" icon="gnuhealth-list"
+            id="gnuhealth_mxl_stores_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Other" icon="gnuhealth-list"
+            id="gnuhealth_mxl_other_menu" parent="gnuhealth_mxl_menu"/>
+
+<menuitem name="Configuration" icon="gnuhealth-list"
+            id="gnuhealth_mxl_configuration_menu" parent="gnuhealth_mxl_menu"/>
+
+
+<!-- Second level menus -->
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_reception_patient_menu" parent="gnuhealth_mxl_reception_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_nursing_station_patient_menu" parent="gnuhealth_mxl_nursing_station_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_doctor_patient_menu" parent="gnuhealth_mxl_doctor_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_other_medical_services_patient_menu" parent="gnuhealth_mxl_other_medical_services_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_dispensary_patient_menu" parent="gnuhealth_mxl_dispensary_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_laboratory_patient_menu" parent="gnuhealth_mxl_laboratory_menu"/>
+
+
+
+
+<!-- PATIENT DATA -->
+
+        <record model="ir.ui.view" id="gnuhealth_mxl_patient_view">
+            <field name="model">gnuhealth.patient</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <form string="patient">
+<!-- Main Info -->
+                    <group string="Main Info" id="patient_main_info">
+                        <group col="6" id="patient_main_info1">
+                            <label name="name"/>
+                            <field name="name"/>
+                            <label name="identification_code"/>
+                            <field name="identification_code"/>
+                            <label name="sex"/>
+                            <field name="sex"/>
+                        </group>
+                        <newline/>
+                        <group col="6" id="patient_main_info2">
+                            <label name="dob"/>
+                            <field name="dob"/>
+                            <label name="age"/>
+                            <field name="age"/>
+<!--
+                            <label name="childbearing_age"/>
+                            <field name="childbearing_age"/>
+-->
+                            <newline/>
+                            <separator colspan="4"
+                                string="Patient Allergies and Critical Information"
+                                id="patient_critical_information"/>
+                            <newline/>
+                            <field colspan="4" name="critical_info"/>
+                        </group>
+                    </group>
+
+                    <group string="Picture" id="patient_picture">
+                        <field name="photo" img_width="200" img_height="200"
+                            height="200" width="200" widget="image"/>
+                    </group>
+                    <newline/>
+
+                    <notebook>
+                        <page string="General Info" id="general_info">
+                            <notebook>
+
+                                <page string="Main" id="main_info_page">
+                                    <group col="6" colspan="4"
+                                        string="Patient General Information"
+                                        id="general_info">
+                                        <label name="blood_type"/>
+                                        <field name="blood_type"/>
+                                        <label name="rh"/>
+                                        <field name="rh"/>
+                                        <label name="ethnic_group"/>
+                                        <field name="ethnic_group"/>
+                                        <newline/>
+                                        <label name="family"/>
+                                        <field name="family"/>
+                                        <label name="current_address"/>
+                                        <field name="current_address"/>
+                                        <label name="marital_status"/>
+                                        <field name="marital_status"/>
+                                        <newline/>
+                                        <label name="primary_care_doctor"/>
+                                        <field name="primary_care_doctor"/>
+                                        <label name="current_insurance"/>
+                                        <field name="current_insurance"/>
+                                    </group>
+                                </page>
+
+                                <page string="Misc" id="misc_info_page">
+                                    <group id="patient_info" colspan="4" col="4">
+                                    <separator colspan="4"
+                                        string="Patient Extra Information"
+                                        id="separator_misc"/>
+                                    <newline/>
+
+                                    <field name="general_info" colspan="4"/>
+                                    </group>
+                                    <newline/>
+                                    <group colspan="4" col="6" id="misc_info_group">
+                                        <label name="deceased"/>
+                                        <field name="deceased"/>
+                                        <label name="dod"/>
+                                        <field name="dod"/>
+                                        <label name="cod"/>
+                                        <field name="cod"/>
+                                    </group>
+                                </page>
+
+                            </notebook>
+                        </page>
+
+<!-- Patient Visits -->
+
+                        <page string="Medication" id="patient_visits">
+                            <field name="visits" colspan="4"/>
+                        </page>
+
+<!-- Patient Encounter -->
+                        <page string="Encounters" id="patient_encounters">
+                            <field name="encounters" colspan="4"/>
+                        </page>
+
+<!-- Patient Cases -->
+                        <page string="Cases" id="patient_cases">
+                            <field name="cases" colspan="4"/>
+                        </page>
+
+<!-- Patient Encounter -->
+                        <page string="Medical" id="patient_medical">
+                          
+                        </page>
+
+<!-- Patient Diagnosis -->
+                        <page string="Diagnosis" id="patient_diagnosis">
+                           
+                        </page>
+
+<!-- Patient Diagnosis -->
+                        <page string="Prescriptions" id="patient_diagnosis">
+                            
+                        </page>
+
+
+                    </notebook>
+                </form>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="gnuhealth_mxl_patient_tree">
+            <field name="model">gnuhealth.patient</field>
+            <field name="type">tree</field>
+            <field name="arch" type="xml">
+                <![CDATA[
+                <tree string="patient">
+                    <field name="name" expand="1"/>
+                    <field name="lastname" expand="1"/>
+                    <field name="identification_code" expand="1"/>
+                </tree>
+                ]]>
+            </field>
+        </record>
+
+        <record model="ir.action.act_window" id="gnuhealth_action_mxl_patient">
+            <field name="name">Patients</field>
+            <field name="res_model">gnuhealth.patient</field>
+        </record>
+
+        <record model="ir.action.act_window.view" id="act_gnuhealth_mxl_patient_view_list">
+            <field name="sequence" eval="10"/>
+            <field name="view" ref="gnuhealth_mxl_patient_tree"/>
+            <field name="act_window" ref="gnuhealth_action_mxl_patient"/>
+        </record>
+        <record model="ir.action.act_window.view" id="act_gnuhealth_mxl_patient_view_form">
+            <field name="sequence" eval="20"/>
+            <field name="view" ref="gnuhealth_mxl_patient_view"/>
+            <field name="act_window" ref="gnuhealth_action_mxl_patient"/>
+        </record>
+
+        <!--<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_patient" parent="gnuhealth_mxl_menu"/> -->
+
+    </data>
+</tryton>
