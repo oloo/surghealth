@@ -51,27 +51,6 @@
             id="gnuhealth_mxl_configuration_menu" parent="gnuhealth_mxl_menu"/>
 
 
-<!-- Second level menus -->
-
-<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
-            id="gnuhealth_mxl_reception_patient_menu" parent="gnuhealth_mxl_reception_menu"/>
-
-<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
-            id="gnuhealth_mxl_nursing_station_patient_menu" parent="gnuhealth_mxl_nursing_station_menu"/>
-
-<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
-            id="gnuhealth_mxl_doctor_patient_menu" parent="gnuhealth_mxl_doctor_menu"/>
-
-<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
-            id="gnuhealth_mxl_other_medical_services_patient_menu" parent="gnuhealth_mxl_other_medical_services_menu"/>
-
-<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
-            id="gnuhealth_mxl_dispensary_patient_menu" parent="gnuhealth_mxl_dispensary_menu"/>
-
-<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
-            id="gnuhealth_mxl_laboratory_patient_menu" parent="gnuhealth_mxl_laboratory_menu"/>
-
-
 
 
 <!-- PATIENT DATA -->
@@ -239,6 +218,29 @@
 
         <!--<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
             id="gnuhealth_mxl_patient" parent="gnuhealth_mxl_menu"/> -->
+
+
+
+
+<!-- Second level menus -->
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_reception_patient_menu" parent="gnuhealth_mxl_reception_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_nursing_station_patient_menu" parent="gnuhealth_mxl_nursing_station_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_doctor_patient_menu" parent="gnuhealth_mxl_doctor_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_other_medical_services_patient_menu" parent="gnuhealth_mxl_other_medical_services_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_dispensary_patient_menu" parent="gnuhealth_mxl_dispensary_menu"/>
+
+<menuitem action="gnuhealth_action_mxl_patient" icon="gnuhealth-list"
+            id="gnuhealth_mxl_laboratory_patient_menu" parent="gnuhealth_mxl_laboratory_menu"/>
 
     </data>
 </tryton>
